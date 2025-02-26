@@ -6,7 +6,7 @@ import obspy
 import rodsPlotTfr as rpt
 import scipy.ndimage as ndimage
 from obspy.core import UTCDateTime, Stream, Trace
-from obspy.signal import util
+from obspy.signal import util, hilbert
 from obspy.imaging.cm import obspy_sequential, obspy_divergent
 from matplotlib.ticker import NullFormatter
 from scipy import signal
@@ -894,6 +894,9 @@ def streamFiddle( st, what ):
             data = np.abs( data )
         elif what == 'sqrt':
             data = np.sqrt( data )
+        elif what == 'env':
+            analytic_signal = hilbert(data)
+            data = np.abs(analytic_signal)
         elif what == '':
             data = np.log( data )
         tr2.data = data
