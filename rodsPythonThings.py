@@ -907,6 +907,27 @@ def streamFiddle( st, what ):
 
 
 
+def streamFiddle3C( st, what ):
+    # Replaces 3C streams with modified values
+    # DOES NOT WORK IF ANY NON-3C DATA IS PASSED
+    st2 = Stream()
+    nTrace = len( st )
+    for itr in xrange(0,nTrace,3):
+        tr1 = st[itr]
+        trnew = tr
+        tr2 = st(itr+1]
+        tr3 = st(itr+2]
+        data1 = tr1.data
+        data2 = tr2.data
+        data3 = tr3.data
+        if what == 'vec':
+            data = np.sqrt( np.square(data1) + np.square(data2) + np.square(data3) )
+        trnew.data = data
+        st2.append( trnew )
+    return st2
+
+
+
 def streamRMS( st, windowMinutes ):
 
     # Calculates RMS for each trace in a stream
