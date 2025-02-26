@@ -914,7 +914,7 @@ def streamFiddle3C( st, what ):
     nTrace = len( st )
     for itr in range(0,nTrace,3):
         tr1 = st[itr]
-        trnew = tr
+        trnew = tr1
         tr2 = st[itr+1]
         tr3 = st[itr+2]
         data1 = tr1.data
@@ -923,6 +923,7 @@ def streamFiddle3C( st, what ):
         if what == 'vec':
             data = np.sqrt( np.square(data1) + np.square(data2) + np.square(data3) )
         trnew.data = data
+        trnew.stats.channel = "VEC"
         st2.append( trnew )
     return st2
 
