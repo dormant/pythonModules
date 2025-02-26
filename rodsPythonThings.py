@@ -912,7 +912,7 @@ def streamFiddle3C( st, what ):
     # DOES NOT WORK IF ANY NON-3C DATA IS PASSED
     st2 = Stream()
     nTrace = len( st )
-    for itr in xrange(0,nTrace,3):
+    for itr in range(0,nTrace,3):
         tr1 = st[itr]
         trnew = tr
         tr2 = st[itr+1]
