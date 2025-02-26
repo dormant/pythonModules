@@ -6,7 +6,8 @@ import obspy
 import rodsPlotTfr as rpt
 import scipy.ndimage as ndimage
 from obspy.core import UTCDateTime, Stream, Trace
-from obspy.signal import util, hilbert
+from obspy.signal import util
+from scipy.signal import hilbert
 from obspy.imaging.cm import obspy_sequential, obspy_divergent
 from matplotlib.ticker import NullFormatter
 from scipy import signal
