@@ -898,6 +898,7 @@ def streamFiddle( st, what ):
         elif what == 'env':
             analytic_signal = hilbert(data)
             data = np.abs(analytic_signal)
+            data = util.smooth( data, 50 )
         elif what == '':
             data = np.log( data )
         tr2.data = data
