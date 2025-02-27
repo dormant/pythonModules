@@ -914,15 +914,18 @@ def streamFiddle3C( st, what ):
     nTrace = len( st )
     for itr in range(0,nTrace,3):
         tr1 = st[itr]
+        tr1.detrend('deman')
         trnew = tr1
         tr2 = st[itr+1]
+        tr3.detrend('deman')
         tr3 = st[itr+2]
+        tr3.detrend('deman')
         data1 = tr1.data
         data2 = tr2.data
         data3 = tr3.data
         if what == 'vec':
-            data = np.sqrt( np.square(data1.detrend("demean") ) + np.square(data2.detrend("demean") ) + np.square(data3.detrend("demean") ) )
-        trnew.data = data.detrend("demean") 
+            data = np.sqrt( np.square(data1) + np.square(data2) + np.square(data3) )
+        trnew.data = data 
         trnew.stats.channel = "VEC"
         st2.append( trnew )
     return st2
