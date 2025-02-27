@@ -914,12 +914,12 @@ def streamFiddle3C( st, what ):
     nTrace = len( st )
     for itr in range(0,nTrace,3):
         tr1 = st[itr]
-        tr1.detrend('deman')
+        tr1.detrend('demean')
         trnew = tr1
         tr2 = st[itr+1]
-        tr3.detrend('deman')
+        tr3.detrend('demean')
         tr3 = st[itr+2]
-        tr3.detrend('deman')
+        tr3.detrend('demean')
         data1 = tr1.data
         data2 = tr2.data
         data3 = tr3.data
