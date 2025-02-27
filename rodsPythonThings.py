@@ -917,7 +917,7 @@ def streamFiddle3C( st, what ):
         tr1.detrend('demean')
         trnew = tr1
         tr2 = st[itr+1]
-        tr3.detrend('demean')
+        tr2.detrend('demean')
         tr3 = st[itr+2]
         tr3.detrend('demean')
         data1 = tr1.data
