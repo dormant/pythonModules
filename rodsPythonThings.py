@@ -927,6 +927,7 @@ def streamFiddle3C( st, what ):
             data = np.sqrt( np.square(data1) + np.square(data2) + np.square(data3) )
         trnew.data = data 
         trnew.stats.channel = "VEC"
+        trnew.taper(0.1, type='cosine', max_length=None, side='both')
         st2.append( trnew )
     return st2
 
