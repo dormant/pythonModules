@@ -921,8 +921,8 @@ def streamFiddle3C( st, what ):
         data2 = tr2.data
         data3 = tr3.data
         if what == 'vec':
-            data = np.sqrt( np.square(data1) + np.square(data2) + np.square(data3) )
-        trnew.data = data
+            data = np.sqrt( np.square(data1.detrend("demean") ) + np.square(data2.detrend("demean") ) + np.square(data3.detrend("demean") ) )
+        trnew.data = data.detrend("demean") 
         trnew.stats.channel = "VEC"
         st2.append( trnew )
     return st2
